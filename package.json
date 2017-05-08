@@ -1,0 +1,20 @@
+{
+  "name": "assignment_zero",
+  "version": "1.0.0",
+  "description": "Andela Day Zero Exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine tests/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/.git"
+  },
+  "keywords": [
+    "Prime",
+    "Assignment",
+    "Zero"
+  ],
+  "author": "Lupinebyter",
+  "license": "UNLICENSED"
+}
