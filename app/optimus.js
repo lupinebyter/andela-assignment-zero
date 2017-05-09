@@ -43,4 +43,15 @@ module.exports = {
    }
    return outputPrimes;
  }
+ isPrime : (primeHopeful)
+ {
+   for(let i = 2; i< primeHopeful; i++)
+   {
+      if(primeHopeful%i === 0)
+      {
+         return false;
+      }
+   }
+   return value > 1;
+ }
 }
