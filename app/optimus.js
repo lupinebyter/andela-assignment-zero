@@ -5,6 +5,16 @@ module.exports = {
  /* Find all prime numbers from 0 to input limit... */
  getPrimes: (upperArrayLimit) => {
    // the logic goes here...
+   //Before any logic, root out edge cases...
+   if(isNaN(upperArrayLimit))
+   {
+      return 'Error: Invalid Input';
+   }
+   if(upperArrayLimit<=0)
+   {
+      return (upperArrayLimit===0)?'Error: Zero Input':
+         'Error: Negative Input';
+   }
    //No even number can be prime except 2...
    //So our suspects are all looking odd today... o_O
    let primeArray = [], countLimit, outputPrimes = [], primesFound = 0;
@@ -16,35 +26,17 @@ module.exports = {
       primesFound++;
    }
    //the rest of the odd numbers from 5 are tested for and included....
-   //adapting seive of somedude...
-   for(let i = 5; i<= upperArrayLimit; i++)
+   for(let i = 5; i<=upperArrayLimit; i+=2)
    {
-      primeArray[i] = true;
-   }
-   countLimit = Math.sqrt(upperArrayLimit);
-
-   for(let i = 5; i < countLimit; i++)
-   {
-      if(primeArray[i] === true)
-      {
-         for(let j = i*i; j< upperArrayLimit; j += i)
-         {
-            primeArray[j] = false;
-         }
-      }
-   }
-   for(let i= 5; i<= upperArrayLimit; i++)
-   {
-      if(primeArray[i] === true)
+      if(module.exports.isPrime(i))
       {
          outputPrimes[primesFound] = i;
          primesFound++;
       }
    }
    return outputPrimes;
- }
- isPrime : (primeHopeful)
- {
+ },
+ isPrime : (primeHopeful) => {
    for(let i = 2; i< primeHopeful; i++)
    {
       if(primeHopeful%i === 0)
@@ -52,6 +44,6 @@ module.exports = {
          return false;
       }
    }
-   return value > 1;
+   return primeHopeful > 1;
  }
 }

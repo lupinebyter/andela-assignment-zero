@@ -30,4 +30,14 @@ describe("When optimus getPrimes function is called ", function() {
   it("should return [1,2,3,5,7,11,13,17,19,23] for 25", function() {
     expect(myApp.getPrimes(25)).toEqual([1,2,3,5,7,11,13,17,19,23]);
   })
+  //Edge Cases... invalid_input, zero_input, negative_input
+  it("should return 'Error: Invalid input' for x", function() {
+    expect(myApp.getPrimes('x')).toEqual('Error: Invalid Input');
+  })
+  it("should return 'Error: Zero input' for 0", function() {
+    expect(myApp.getPrimes(0)).toEqual('Error: Zero Input');
+  })
+  it("should return 'Error: Nagative input' for -5", function() {
+    expect(myApp.getPrimes(-5)).toEqual('Error: Negative Input');
+  })
 })
